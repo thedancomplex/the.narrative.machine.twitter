@@ -1,0 +1,6 @@
+[submodule "python-twitter"]
+	path = python-twitter
+	url = https://github.com/LofaroLabs/python-twitter
+[submodule "twitter-repeater"]
+	path = twitter-repeater
+	url = https://github.com/chooper/twitter-repeater
