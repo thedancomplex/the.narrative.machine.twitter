@@ -30,6 +30,7 @@ def start():
 		for tweet in mymentions:
                      if (not doExit):   
 			d = str(unicode(tweet.text).encode("utf-8"))+" >>  "+str(unicode(tweet.user.screen_name).encode("utf-8"))
+                        ##### d is the most recent received test #####
                         if(theLast != d):
 			  print d
                           theLast = d
