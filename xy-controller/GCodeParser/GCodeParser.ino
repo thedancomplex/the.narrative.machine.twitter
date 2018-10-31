@@ -107,6 +107,7 @@ int targetPosServo = 90;
 bool comment = false;
 void setup()
 {
+  pinMode(14, OUTPUT);
 	//Do startup stuff here
 	Serial.begin(115200);
         if(Z_ENABLE_SERVO==1){

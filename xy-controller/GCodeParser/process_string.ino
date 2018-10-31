@@ -287,6 +287,17 @@ void process_string(char instruction[], int size)
 				set_position(0.0, 0.0, 0.0);
 			break;
 
+      case 98:
+        /* Start motor */
+        digitalWrite(14, HIGH);
+        Serial.println("Motor On");
+        break;
+      case 99:
+        /* Stop motor */
+        digitalWrite(14, LOW);
+        Serial.println("Motor Off");
+        break;
+
 /*
 			//Inverse Time Feed Mode
 			case 93:
