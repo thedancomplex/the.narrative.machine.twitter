@@ -46,4 +46,4 @@ def start():
 	
 while(1):
 	start()
-        time.sleep(1)
+        time.sleep(10)
