@@ -5,6 +5,7 @@
 import sys
 import tweepy
 import time
+import os
 
 CONSUMER_KEY = '067x70cnWGAltFo8YUFIhrN6X'
 CONSUMER_SECRET = '7O9NTSm1oB7BH1hLLIe2pHFPuqm2KQmbDSUQo2yOWyn41p4jyh'
@@ -20,9 +21,10 @@ api = tweepy.API(auth)
 
 
 theLast = None
-
+ri = 0
 def start():
-        global theLast
+
+        global theLast, ri
         a = 'mentions'
 	if (a == 'mentions'):
 		mymentions = api.mentions_timeline()
@@ -34,6 +36,19 @@ def start():
                         if(theLast != d):
 			  print d
                           theLast = d
+                          os.system("python runNM.py &")
+                          time.sleep(5.0)
+                          if ri == 0:
+                            os.system("aplay audio/1a.wav")
+                          if ri == 1:
+                            os.system("aplay audio/2a.wav")
+                          if ri == 2:
+                            os.system("aplay audio/3a.wav")
+                          if ri == 3:
+                            os.system("aplay audio/4a.wav")
+                          ri = ri+1
+                          if ri > 3:
+                            ri = 0
                         doExit = True
                      
 	else:
@@ -46,4 +61,4 @@ def start():
 	
 while(1):
 	start()
-        time.sleep(1)
+        time.sleep(30)
