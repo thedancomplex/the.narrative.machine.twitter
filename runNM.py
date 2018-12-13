@@ -37,6 +37,7 @@ for i in range(5):
   time.sleep(1.9)
 #ser.write('G0 X300 Y300\r')
 ser.write('G99\r')
-time.sleep(5.0)
+time.sleep(0.5)
 os.system("./gpioLow.sh")
+time.sleep(5.0)
 ser.close()
