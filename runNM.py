@@ -11,6 +11,9 @@ ser = serial.Serial(
     stopbits=serial.STOPBITS_ONE,\
     bytesize=serial.EIGHTBITS,\
         timeout=1)
+# Start Drum
+os.system("./drumOn.sh &")
+time.sleep(20.0)
 
 print("connected to: " + ser.portstr)
 time.sleep(5.0)
@@ -19,9 +22,8 @@ theMax = 500
 theMid = (500-200)/1.0
 theStr = 'G0 X' + str(theMid) + ' Y' + str(theMid) + '\r'
 ser.write(theStr)
-os.system("./gpioHigh.sh")
-time.sleep(5.0)
-for i in range(5):
+#os.system("sudo ./gpioHigh.sh &")
+for i in range(20):
   x = random.randint(theMin,theMax)
   y = random.randint(theMin,theMax)
   onOff = random.randint(1,10)
@@ -38,6 +40,10 @@ for i in range(5):
 #ser.write('G0 X300 Y300\r')
 ser.write('G99\r')
 time.sleep(0.5)
-os.system("./gpioLow.sh")
+#os.system("sudo ./gpioLow.sh &")
+
+# Drum Off
 time.sleep(5.0)
+os.system("./drumOff.sh")
+
 ser.close()
