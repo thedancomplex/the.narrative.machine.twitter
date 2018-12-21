@@ -12,7 +12,8 @@ ser = serial.Serial(
     bytesize=serial.EIGHTBITS,\
         timeout=1)
 # Start Drum
-os.system("./drumOn.sh &")
+os.system("/home/pi/projects/the.narrative.machine.twitter/drumOn.sh &")
+#os.system("./drumOn.sh &")
 time.sleep(20.0)
 
 print("connected to: " + ser.portstr)
@@ -44,6 +45,6 @@ time.sleep(0.5)
 
 # Drum Off
 time.sleep(5.0)
-os.system("./drumOff.sh")
+os.system("/home/pi/projects/the.narrative.machine.twitter/drumOff.sh")
 
 ser.close()
